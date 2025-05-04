@@ -20,4 +20,7 @@ services:
     command: python app.py
     depends_on:
       - server
+    environment:
+      SERVER_HOST: server
+      SERVER_PORT: 5050
 
