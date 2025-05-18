@@ -5,8 +5,8 @@ services:
     build: ./server
     ports:
       - "5050:5050"  # Access server from localhost:5050
-    volumes:
-      - ./server:/app
+    #volumes:
+    #  - ./server:/app
     working_dir: /app
     command: python app.py
 
@@ -14,8 +14,8 @@ services:
     build: ./client
     ports:
       - "8080:8080"  # Expose client on localhost:8080
-    volumes:
-      - ./client:/app
+    #volumes:
+    #  - ./client:/app
     working_dir: /app
     command: python app.py
     depends_on:
