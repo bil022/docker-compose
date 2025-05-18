@@ -16,8 +16,11 @@ def hello():
     response = requests.get(server_url)
     server_message = response.json()  # This is a dictionary
 
+    joke = requests.get('https://official-joke-api.appspot.com/random_joke').json()
+    msg=f": {joke['setup']} — {joke['punchline']}"
+
     # Convert the dictionary to a string using json.dumps()
-    return jsonify(message="Client call server @" + server_url + ": "  + json.dumps(server_message))
+    return jsonify(message=f"Client say: ${msg}.\nServer @${server_url} say: "  + json.dumps(server_message))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
