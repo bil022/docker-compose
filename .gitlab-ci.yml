@@ -22,6 +22,8 @@ test:
     - docker compose up -d
     - sleep 10
     - docker compose ps
+    - docker exec docker-compose-server-1 curl http://localhost:5050
+    - docker exec docker-compose-client-1 curl http://localhost:8080
     #- curl http://localhost:8080 || docker compose logs && exit 1
     #- curl http://localhost:5050 || docker compose logs && exit 1
     - docker compose down
